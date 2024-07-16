@@ -79,7 +79,7 @@ def distance_loss(inputs, targets, alpha=0):
 
     pair_dis_sim = 1 / (1 + pair_dis)
 
-    loss = (1 - pair_dis_sim.cpu()) * identity_matrix.cpu() - (
+    loss = (1 - pair_dis_sim.cpu()) * identity_matrix.cpu() + (
         pair_dis_sim.cpu() - alpha
     ) * (~identity_matrix.cpu())
     loss = loss.mean()
